@@ -30,8 +30,8 @@ Prerequisites: Docker Desktop, kind, kubectl, Helm
 
   kind create cluster --name forgeci
   ./scripts/ci-local.sh
-  kubectl port-forward svc/forgeci 8081:80
-  curl http://127.0.0.1:8081/health
+  kubectl port-forward svc/forgeci 8090:80
+  curl http://127.0.0.1:8090/health
 
 Jenkins: Create Pipeline job using root Jenkinsfile. Stages: Checkout → Test → Build Docker → Load to kind → Deploy with Helm
 
@@ -49,7 +49,7 @@ ForgeCI/
 ## Troubleshooting
 
 ImagePullBackOff → kind load docker-image forgeci-demo:latest --name forgeci + pullPolicy Never
-Port in use → kubectl port-forward svc/forgeci 8081:80
+Port in use → kubectl port-forward svc/forgeci 8090:80
 Pods Pending → kubectl describe pod -l app=forgeci
 
 ## Resume / interview talking points
