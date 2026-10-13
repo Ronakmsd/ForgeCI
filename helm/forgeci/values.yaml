@@ -1,0 +1,19 @@
+replicaCount: 2
+
+image:
+  repository: forgeci-demo
+  tag: local
+  pullPolicy: Never
+
+service:
+  type: ClusterIP
+  port: 80
+  targetPort: 8000
+
+resources:
+  requests:
+    cpu: 50m
+    memory: 64Mi
+  limits:
+    cpu: 200m
+    memory: 256Mi
